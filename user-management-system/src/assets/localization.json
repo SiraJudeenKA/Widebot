@@ -1,0 +1,36 @@
+{
+    "en": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "profileUrl": "Profile Photo",
+        "address": "Address",
+        "save": "Save",
+        "cancel": "Cancel",
+        "update": "Update",
+        "back": "Back",
+        "action": "Action",
+        "tableColumn": [
+            "Profile Photo",
+            "First Name",
+            "Last Name",
+            "Actions"
+        ]
+    },
+    "arab": {
+        "firstName": "الاسم الأول",
+        "lastName": "اسم العائلة",
+        "profileUrl": "صورة الملف الشخصي",
+        "address": "عنوان",
+        "save": "يحفظ",
+        "cancel": "يلغي",
+        "update": "تحديث",
+        "back": "خلف",
+        "action": "أجراءات",
+        "tableColumn": [
+            "صورة الملف الشخصي",
+            "الاسم الأول",
+            "اسم العائلة",
+            "أجراءات"
+        ]
+    }
+}

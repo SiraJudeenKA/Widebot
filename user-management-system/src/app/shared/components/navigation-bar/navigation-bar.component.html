@@ -1,7 +1,12 @@
 <ul class="navbar">
     <div class="nav-align">
-        <li class="nav-list">Localization</li>
+        <li class="nav-list" (click)="onTranslate(initialLanguageCode)">Localization</li>
         <li class="nav-list" (click)="onLogout()">Logout</li>
     </div>
 </ul><br>
-<router-outlet></router-outlet>
+<ng-container *ngIf="!isLoader; else loaderBlock">
+    <router-outlet></router-outlet>
+</ng-container>
+<ng-template #loaderBlock>
+    <app-animation-loader></app-animation-loader>
+</ng-template>

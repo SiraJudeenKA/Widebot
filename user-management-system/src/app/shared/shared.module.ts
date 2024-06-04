@@ -6,6 +6,7 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
     MatDialogModule,
     MatCardModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   exports: [
     AnimationLoaderComponent,
