@@ -1,0 +1,39 @@
+.login-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+
+.logo-size {
+    height: 50%;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.login-mat-card {
+    width: 45%;
+    background-color: white;
+}
+
+.content-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.form-align {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.button-color {
+    background-color: #FF5100 !important;
+    width: 25%;
+    color: #004a9b !important;
+}

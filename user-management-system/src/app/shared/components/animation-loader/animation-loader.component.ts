@@ -1,0 +1,10 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-animation-loader',
+  templateUrl: './animation-loader.component.html',
+  styleUrls: ['./animation-loader.component.scss']
+})
+export class AnimationLoaderComponent {
+
+}
