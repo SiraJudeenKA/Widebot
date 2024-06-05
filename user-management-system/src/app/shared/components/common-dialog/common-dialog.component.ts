@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-common-dialog',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class CommonDialogComponent {
 
+  constructor(@Inject(MAT_DIALOG_DATA) public inputData: any, public dialogRef: MatDialogRef<CommonDialogComponent>) { }
+
+  onClickofOkay() {
+    this.dialogRef.close(true);
+  }
 }

@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { UsersService } from 'src/app/shared/services/users.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -23,18 +24,18 @@ export class UserListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ELEMENT_DATA = [
-    { profileUrl: './assets/avatar1.png', firstName: 'John', lastName: 'Doe', address: '54 kaja na' },
-    { profileUrl: './assets/avatar1.png', firstName: 'Jane', lastName: 'Smith', address: 'Kajcd sd' },
-    { profileUrl: './assets/avatar1.png', firstName: 'John', lastName: 'Doe', address: '54 kaja na' },
-    { profileUrl: './assets/avatar1.png', firstName: 'Jane', lastName: 'Smith', address: 'Kajcd sd' },
-    { profileUrl: './assets/avatar1.png', firstName: 'John', lastName: 'Doe', address: '54 kaja na' },
-    { profileUrl: './assets/avatar1.png', firstName: 'Jane', lastName: 'Smith', address: 'Kajcd sd' },
-    { profileUrl: './assets/avatar1.png', firstName: 'John', lastName: 'Doe', address: '54 kaja na' },
-    { profileUrl: './assets/avatar1.png', firstName: 'Jane', lastName: 'Smith', address: 'Kajcd sd' },
-    { profileUrl: './assets/avatar1.png', firstName: 'John', lastName: 'Doe', address: '54 kaja na' },
-    { profileUrl: './assets/avatar1.png', firstName: 'Jane', lastName: 'Smith', address: 'Kajcd sd' },
-    { profileUrl: './assets/avatar1.png', firstName: 'John', lastName: 'Doe', address: '54 kaja na' },
-    { profileUrl: './assets/avatar1.png', firstName: 'Jane', lastName: 'Smith', address: 'Kajcd sd' },
+    { profileUrl: './assets/avatar1.png', firstName: 'John', lastName: 'Doe', email: 'ab@mailinator.com', address: '54 kaja na' },
+    { profileUrl: './assets/avatar1.png', firstName: 'Jane', lastName: 'Smith', email: 'ab@mailinator.com', address: 'Kajcd sd' },
+    { profileUrl: './assets/avatar1.png', firstName: 'John', lastName: 'Doe', email: 'ab@mailinator.com', address: '54 kaja na' },
+    { profileUrl: './assets/avatar1.png', firstName: 'Jane', lastName: 'Smith', email: 'ab@mailinator.com', address: 'Kajcd sd' },
+    { profileUrl: './assets/avatar1.png', firstName: 'John', lastName: 'Doe', email: 'ab@mailinator.com', address: '54 kaja na' },
+    { profileUrl: './assets/avatar1.png', firstName: 'Jane', lastName: 'Smith', email: 'ab@mailinator.com', address: 'Kajcd sd' },
+    { profileUrl: './assets/avatar1.png', firstName: 'John', lastName: 'Doe', email: 'ab@mailinator.com', address: '54 kaja na' },
+    { profileUrl: './assets/avatar1.png', firstName: 'Jane', lastName: 'Smith', email: 'ab@mailinator.com', address: 'Kajcd sd' },
+    { profileUrl: './assets/avatar1.png', firstName: 'John', lastName: 'Doe', email: 'ab@mailinator.com', address: '54 kaja na' },
+    { profileUrl: './assets/avatar1.png', firstName: 'Jane', lastName: 'Smith', email: 'ab@mailinator.com', address: 'Kajcd sd' },
+    { profileUrl: './assets/avatar1.png', firstName: 'John', lastName: 'Doe', email: 'ab@mailinator.com', address: '54 kaja na' },
+    { profileUrl: './assets/avatar1.png', firstName: 'Jane', lastName: 'Smith', email: 'ab@mailinator.com', address: 'Kajcd sd' },
     // Add more data as needed
   ];
 
@@ -42,7 +43,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
    * Construction used for to inject the service
    * @param userService used the for access the method ins user service,
    */
-  constructor(public userService: UsersService) { }
+  constructor(public userService: UsersService, private router: Router) { }
 
   /**
    * Oninit life cycle hook
@@ -51,7 +52,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
     this.data = new MatTableDataSource(this.ELEMENT_DATA);
     console.log(this.data);
     this.data.paginator = this.paginator;
-    this.displayedColumns = ['profileUrl', 'firstName', 'lastName', 'address', 'actions']
+    this.displayedColumns = ['profileUrl', 'firstName', 'lastName', 'email', 'address', 'actions']
   }
 
   /**
@@ -73,5 +74,11 @@ export class UserListComponent implements OnInit, AfterViewInit {
     if (this.data.paginator) {
       this.data.paginator.firstPage();
     }
+  }
+  /**
+   * Method used to navigate for create user component
+   */
+  onCreateUser(): void {
+    this.router.navigate(['/app/admin/add']);
   }
 }

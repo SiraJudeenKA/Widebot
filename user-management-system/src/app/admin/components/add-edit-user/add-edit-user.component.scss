@@ -1,0 +1,61 @@
+.user-card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 100%;
+    gap: 20px;
+}
+
+.logo-size {
+    width: 150px;
+    height: 150px;
+}
+
+.form-field {
+    width: 100%;
+}
+
+.form-width {
+    flex-basis: 60%;
+}
+
+.logo-width {
+    flex-basis: 20%;
+}
+
+.button-info {
+    margin: 0 auto;
+    color: white !important;
+    background-color: #FF5100 !important;
+    width: 50%;
+}
+
+.mat-card-style {
+    height: auto;
+}
+
+.button-align {
+    display: flex;
+    margin: 0 auto;
+    gap: 20px;
+    width: 50%;
+}
+
+.basic-card {
+    padding: 20px;
+    margin: 0 auto;
+    width: 50%;
+}
+
+
+.logo-card {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: 0 auto;
+}

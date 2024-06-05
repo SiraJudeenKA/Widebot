@@ -37,8 +37,8 @@ export class LoginComponent extends AuthConstant implements OnInit {
    */
   ngOnInit(): void {
     this.loginFormGroup = new UntypedFormGroup({
-      email: new UntypedFormControl(null, [Validators.email, Validators.required]),
-      password: new UntypedFormControl(null, [Validators.required])
+      username: new UntypedFormControl(null, Validators.required),
+      password: new UntypedFormControl(null, Validators.required)
     });
   }
   /**

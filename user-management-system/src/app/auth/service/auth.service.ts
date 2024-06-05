@@ -8,12 +8,12 @@ import { credentialValue } from '../model';
 export class AuthService {
 
   userCredentials: loginDetails = {
-    email: 'user@mailinator.com',
+    username: 'user',
     password: 'User@1234'
   };
 
   adminCredentials: loginDetails = {
-    email: 'admin@mailinator.com',
+    username: 'admin',
     password: 'Admin@1234'
   }
 

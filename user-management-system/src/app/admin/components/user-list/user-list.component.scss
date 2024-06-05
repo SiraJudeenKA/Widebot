@@ -25,3 +25,16 @@
 .profile-width {
     width: 30px;
 }
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+
+.header-button {
+    color: white !important;
+    background-color: #FF5100 !important;
+}

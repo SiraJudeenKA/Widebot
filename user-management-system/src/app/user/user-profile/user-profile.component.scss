@@ -1,0 +1,72 @@
+.profile-information {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-image: url('../../../assets/back2.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: fit-content;
+    box-shadow: 0px 0px 0px 3px;
+}
+
+.logo-size {
+    width: 200px;
+    height: 150px;
+    position: relative;
+    top: 75px;
+    right: 0px;
+    border-radius: 50%;
+    border-color: black;
+    border-style: solid;
+    background: white;
+
+}
+
+.avartar-change {
+    width: 250px;
+    height: 200px;
+    position: relative;
+    left: -23px;
+    top: -25px;
+}
+
+.information {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 75px;
+}
+
+.button-align {
+    display: flex;
+    margin: 0 auto;
+    gap: 20px;
+    width: 50%;
+    position: relative;
+    top: -30px;
+}
+
+.button-info {
+    margin: 0 auto;
+    color: white !important;
+    background-color: #FF5100 !important;
+    width: 50%;
+}
+
+.welcome-align {
+    padding-left: 15px;
+    padding-top: 15px;
+    font-style: italic;
+    color: #FF5100;
+}

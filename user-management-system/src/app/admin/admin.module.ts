@@ -5,6 +5,7 @@ import { AddEditUserComponent } from './components/add-edit-user/add-edit-user.c
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from 'src/material.module';
 import { AdminRoutingModule } from './admin.routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { AdminRoutingModule } from './admin.routing.module';
     CommonModule,
     SharedModule,
     MaterialModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

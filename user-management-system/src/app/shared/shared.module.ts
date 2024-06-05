@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { AnimationLoaderComponent } from './components/animation-loader/animation-loader.component';
 import { CommonDialogComponent } from './components/common-dialog/common-dialog.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
-import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { MaterialModule } from 'src/material.module';
 
 
 @NgModule({
@@ -17,8 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
-    MatDialogModule,
-    MatCardModule,
+    MaterialModule,
     RouterModule,
     HttpClientModule
   ],
