@@ -3,7 +3,7 @@
         <mat-card class="mat-elevation-z8 logo-card">
             <div class="logo-width">
                 <div style="display: flex;flex-wrap: wrap;">
-                    <img class="logo-size" src="{{ emptyUrl }}"
+                    <img class="user-logo-size" src="{{ emptyUrl }}"
                         alt="{{userService.currentlocalizationDetails.noImageFound}}">
                     <div class="profile-section">
                         <h2>{{userService.currentlocalizationDetails.addImageText}}</h2>
@@ -58,7 +58,7 @@
         </mat-card>
     </div>
 </form><br>
-<div class="button-align">
+<div class="user-button-align">
     <button mat-raised-button class="button-info"
         (click)="onNavigateBack()">{{userService.currentlocalizationDetails.back}}</button>
     <button mat-raised-button class="button-info"
