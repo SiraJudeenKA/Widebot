@@ -79,6 +79,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
    * Method used to navigate for create user component
    */
   onCreateUser(): void {
-    this.router.navigate(['/app/admin/add']);
+    this.router.navigate(['/app/add']);
   }
 }

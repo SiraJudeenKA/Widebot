@@ -6,19 +6,25 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from 'src/material.module';
+import { AddEditUserComponent } from './components/add-edit-user/add-edit-user.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AnimationLoaderComponent,
     CommonDialogComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    AddEditUserComponent,
+    UserProfileComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   exports: [
     AnimationLoaderComponent,

@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CommonDialogComponent } from 'src/app/shared/components/common-dialog/common-dialog.component';
-import { UsersService } from 'src/app/shared/services/users.service';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-add-edit-user',
