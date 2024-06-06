@@ -8,81 +8,82 @@
 </div>
 
 
-
-<mat-form-field>
-    <mat-label>{{userService.currentlocalizationDetails.search}}</mat-label>
-    <input matInput (keyup)="searchText($event)"
-        placeholder="{{userService.currentlocalizationDetails.firstName}},{{userService.currentlocalizationDetails.lastName}}"
-        #input>
-</mat-form-field>
-
-<ng-container *ngIf="data ; else tableData">
-
-    <div class="mat-elevation-z8">
-
-        <table mat-table [dataSource]="data" class="example-table" matSort>
-
-            <ng-container matColumnDef="profileUrl">
-                <th mat-header-cell *matHeaderCellDef>{{userService.currentlocalizationDetails.profileUrl}}</th>
-                <td mat-cell *matCellDef="let row">
-                    <img class="profile-width" src={{row.profileUrl}}>
-                </td>
-            </ng-container>
-
-            <ng-container matColumnDef="firstName">
-                <th mat-header-cell *matHeaderCellDef>{{userService.currentlocalizationDetails.firstName}}</th>
-                <td mat-cell *matCellDef="let row">{{row.firstName}}</td>
-            </ng-container>
-
-
-            <ng-container matColumnDef="lastName">
-                <th mat-header-cell *matHeaderCellDef>{{userService.currentlocalizationDetails.lastName}}</th>
-                <td mat-cell *matCellDef="let row">{{row.lastName}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="email">
-                <th mat-header-cell *matHeaderCellDef>{{userService.currentlocalizationDetails.email}}</th>
-                <td mat-cell *matCellDef="let row">{{row.email}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="address">
-                <th mat-header-cell *matHeaderCellDef>{{userService.currentlocalizationDetails.address}}</th>
-                <td mat-cell *matCellDef="let row">{{row.address}}</td>
-            </ng-container>
-
-
-            <ng-container matColumnDef="actions">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                    {{userService.currentlocalizationDetails.action}}
-                </th>
-                <td mat-cell *matCellDef="let row">
-                    <button mat-icon-button class="visibility">
-                        <mat-icon>visibility</mat-icon>
-                    </button>
-                    <button mat-icon-button class="edit">
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                    <button mat-icon-button class="delete">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
-
-    </div>
+<ng-container *ngIf="isLoader; else noLoader">
+    <app-animation-loader></app-animation-loader>
 </ng-container>
+<ng-template #noLoader>
+    <mat-form-field>
+        <mat-label>{{userService.currentlocalizationDetails.search}}</mat-label>
+        <input matInput (keyup)="searchText($event)"
+            placeholder="{{userService.currentlocalizationDetails.firstName}},{{userService.currentlocalizationDetails.lastName}}"
+            #input>
+    </mat-form-field>
 
-<ng-template #tableData>
-    <div class="imge-align">
-        <img src="./assets/no-record.webp" class="no-record-img"><br>
-        <h2>{{userService.currentlocalizationDetails.noUserFound}}</h2>
+    <ng-container *ngIf="userService.userDetailsData.length > 0 ; else tableData">
 
-    </div>
+        <div class="mat-elevation-z8">
+
+            <table mat-table [dataSource]="tableDataSource" class="example-table" matSort>
+
+                <ng-container matColumnDef="profileUrl">
+                    <th mat-header-cell *matHeaderCellDef>{{userService.currentlocalizationDetails.profileUrl}}</th>
+                    <td mat-cell *matCellDef="let row">
+                        <img class="profile-width" src={{row.profileUrl}}>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="firstName">
+                    <th mat-header-cell *matHeaderCellDef>{{userService.currentlocalizationDetails.firstName}}</th>
+                    <td mat-cell *matCellDef="let row">{{row.firstName}}</td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="lastName">
+                    <th mat-header-cell *matHeaderCellDef>{{userService.currentlocalizationDetails.lastName}}</th>
+                    <td mat-cell *matCellDef="let row">{{row.lastName}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef>{{userService.currentlocalizationDetails.email}}</th>
+                    <td mat-cell *matCellDef="let row">{{row.email}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="address">
+                    <th mat-header-cell *matHeaderCellDef>{{userService.currentlocalizationDetails.address}}</th>
+                    <td mat-cell *matCellDef="let row">{{row.address}}</td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        {{userService.currentlocalizationDetails.action}}
+                    </th>
+                    <td mat-cell *matCellDef="let row;let index = index;">
+                        <button mat-icon-button class="visibility" (click)="toNavigateProfile(row)">
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                        <button mat-icon-button class="edit" (click)="toNavigateAddEditPage(row)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button class="delete" (click)="toDeleteUser(index, row)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+        </div>
+    </ng-container>
+
+    <ng-template #tableData>
+        <div class="imge-align">
+            <img src="./assets/no-record.webp" class="no-record-img"><br>
+            <h2>{{userService.currentlocalizationDetails.noUserFound}}</h2>
+
+        </div>
+    </ng-template>
 </ng-template>
-
-<!-- <mat-paginator [length]="resultsLength" [pageSize]="30"
-    aria-label="Select page of GitHub search results"></mat-paginator> -->

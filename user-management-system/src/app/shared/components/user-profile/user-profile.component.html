@@ -1,4 +1,4 @@
-<div class="profile-card">
+<div class="profile-card" *ngIf="!isLoader; else loader">
     <h1 class="welcome-align ">{{userService.currentlocalizationDetails.welcome}}, {{userDetails.firstName}}</h1>
     <div class="profile-information">
         <div class="logo-size">
@@ -11,7 +11,12 @@
         <h3>{{userDetails.email}}</h3>
         <h3>{{userDetails.address}}</h3>
     </div>
-    <div class="button-align">
-        <button mat-raised-button class="button-info">{{userService.currentlocalizationDetails.edit}}</button>
+    <div class="button-align" *ngIf="!toHideEdit">
+        <button mat-raised-button class="button-info"
+            (click)="toNavigateToedit()">{{userService.currentlocalizationDetails.edit}}</button>
     </div>
 </div>
+
+<ng-template #loader>
+    <app-animation-loader></app-animation-loader>
+</ng-template>

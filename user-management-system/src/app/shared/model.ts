@@ -38,13 +38,21 @@ export interface translateDetails {
     yes: string,
     no: string,
     edit: string,
-    welcome: string
+    welcome: string,
+    savedDetails: string,
+    invalidDetails: string,
+    failedTosave: string,
+    okay: string,
+    someThingWrong: string,
+    addressValidField: string
+    deleteDetails: string
 }
 
 export interface userDetails {
-    firstName: string;
-    lastName: string;
-    profileUrl: string;
-    email: string;
-    address: string;
+    id: number | null;
+    firstName: string | null;
+    lastName: string | null;
+    profileUrl: string | null;
+    email: string | null;
+    address: string | null;
 }

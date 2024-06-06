@@ -39,7 +39,14 @@
         "yes": "Yes",
         "no": "No",
         "edit": "Edit",
-        "welcome": "Welcome"
+        "welcome": "Welcome",
+        "savedDetails": "Successfully saved the details.",
+        "invalidDetails": "Please enter valid details or make any changes.",
+        "failedTosave": "Failed to save the details.",
+        "okay": "Okay",
+        "someThingWrong": "Something went wrong please try again",
+        "addressValidField": "Please enter valid address and it should less than 150 character",
+        "deleteDetails": "Failed to delete the detail."
     },
     "arab": {
         "firstName": "الاسم الأول",
@@ -81,6 +88,13 @@
         "yes": "نعم",
         "no": "لا",
         "edit": "يحرر",
-        "welcome": "مرحباً"
+        "welcome": "مرحباً",
+        "savedDetails": "تم حفظ التفاصيل بنجاح.",
+        "invalidDetails": "الرجاء إدخال تفاصيل صالحة أو إجراء أية تغييرات",
+        "failedTosave": "فشل في حفظ التفاصيل.",
+        "okay": "تمام",
+        "someThingWrong": "حدث خطأ ما. أعد المحاولة من فضلك",
+        "addressValidField": "الرجاء إدخال عنوان صالح ويجب أن يكون أقل من 150 حرفًا",
+        "deleteDetails": "فشل في حذف التفاصيل."
     }
 }
