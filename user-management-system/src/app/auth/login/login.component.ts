@@ -1,3 +1,6 @@
+/**
+ * Login component used to login to user or admin components
+ */
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';

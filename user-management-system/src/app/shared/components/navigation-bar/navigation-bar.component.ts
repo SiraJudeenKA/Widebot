@@ -1,3 +1,6 @@
+/**
+ * Component used for the navigation bar
+ */
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from '../../services/users.service';
@@ -12,15 +15,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class NavigationBarComponent implements OnInit, OnDestroy {
   /**
-   * used to handle the loader
+   * Variable used to handle the loader
    */
   isLoader: boolean = true;
   /**
-   * Used to store the subscription and undestroy it avoid memory leakage
+   * Variable used to handle the nav loader
+   */
+  isNavLoader: boolean = false
+  /**
+   * Variable used to store the subscription and undestroy it avoid memory leakage
    */
   subscriptionObject: Subscription = new Subscription();
   /**
-   * Used to store the initial language code;
+   * Variable used to store the initial language code;
    */
   initialLanguageCode: string = 'en'
   /**
@@ -30,7 +37,7 @@ export class NavigationBarComponent implements OnInit, OnDestroy {
    * @param snackBar has display message in snackbar
    */
   constructor(private router: Router,
-    private userService: UsersService, private snackBar: MatSnackBar) { }
+    public userService: UsersService, private snackBar: MatSnackBar) { }
 
   /**
    * Oninit life cycle hooks
@@ -47,6 +54,7 @@ export class NavigationBarComponent implements OnInit, OnDestroy {
       next: (res: localization) => {
         this.userService.currentlocalizationDetails = res[this.initialLanguageCode === 'en' ? 'en' : 'arab'];
         this.isLoader = false;
+        this.isNavLoader = true
       },
       error: (e) => {
         this.snackBar.open('Failed to fetch the localization details, please try again', 'Okay');

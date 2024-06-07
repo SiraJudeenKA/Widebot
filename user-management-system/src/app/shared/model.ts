@@ -1,8 +1,13 @@
+/**
+ * Interface used to localization for english and arabic
+ */
 export interface localization {
     en: translateDetails;
     arab: translateDetails;
 }
-
+/**
+ * Interface used for the all the static data to show translate data.
+ */
 export interface translateDetails {
     firstName: string;
     lastName: string;
@@ -45,9 +50,14 @@ export interface translateDetails {
     okay: string,
     someThingWrong: string,
     addressValidField: string
-    deleteDetails: string
+    deleteDetails: string,
+    localizationButton: string,
+    logout: string,
+    deleteSuccess: string
 }
-
+/**
+ * Interface used to the user details
+ */
 export interface userDetails {
     id: number | null;
     firstName: string | null;

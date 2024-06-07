@@ -1,3 +1,6 @@
+/**
+ * Component for the user list
+ */
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { UsersService } from 'src/app/shared/services/users.service';
@@ -37,10 +40,11 @@ export class UserListComponent implements OnInit, AfterViewInit {
   isLoader: boolean = false;
 
   /**
-   * Construction used for to inject the service
+   * Constructor used for to inject the service
    * @param userService used the for access the method ins user service,
    * @param router used to router to navigate the page.
    * @param matSnackBar used to display the message.
+   * @param matDialog used to display the dialog message.
    */
   constructor(public userService: UsersService,
     private router: Router, private matSnackBar: MatSnackBar, private matDialog: MatDialog) { }
@@ -53,7 +57,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
     this.userService.userDetailsData = [];
     this.subscriptionObject.add(this.userService.userListDetails.subscribe({
       next: (res: userDetails[]) => {
-        if (res.length > 0) {
+        if (res?.length > 0) {
           this.tableDataSource = new MatTableDataSource(res);
           this.tableDataSource.paginator = this.paginator;
           this.userService.userDetailsData = res;
@@ -65,18 +69,18 @@ export class UserListComponent implements OnInit, AfterViewInit {
       },
       error: (e) => {
         this.matSnackBar.open(this.userService?.currentlocalizationDetails?.someThingWrong,
-          this.userService?.currentlocalizationDetails?.okay)
+          this.userService?.currentlocalizationDetails?.okay);
         this.isLoader = false;
         this.userService.userDetailsData = [];
       }
     }));
-    this.displayedColumns = ['profileUrl', 'firstName', 'lastName', 'email', 'address', 'actions']
+    this.displayedColumns = ['profileUrl', 'firstName', 'lastName', 'email', 'address', 'actions'];
   }
 
   /**
    * after init life cycle hook
    */
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     if (this.userService?.userDetailsData?.length > 0)
       this.tableDataSource.paginator = this.paginator;
   }
@@ -85,7 +89,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
    * Method used to search functionality
    * @param event has the event of keyup value
    */
-  searchText(event: Event) {
+  searchText(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     if (this.userService?.userDetailsData?.length > 0) {
       this.tableDataSource.filter = filterValue.trim().toLowerCase();
@@ -113,10 +117,12 @@ export class UserListComponent implements OnInit, AfterViewInit {
   /**
    * Method used to navigate to add edit page for users
    * @param details has the details of user data
+   * @param index has the index of user details array
    */
-  toNavigateAddEditPage(details: userDetails): void {
+  toNavigateAddEditPage(details: userDetails, index: number): void {
+    details.id = index; /**Mocking the index value for fake api */
     this.userService.editUserDetails = details;
-    this.router.navigate(['/app/add/', details?.id])
+    this.router.navigate(['/app/add/', index])
   }
   /**
    * Method used to delete the data from the array list
@@ -138,9 +144,10 @@ export class UserListComponent implements OnInit, AfterViewInit {
       return res;
     }), mergeMap((res: boolean) => {
       if (res) {
+        this.isLoader = true;
         return this.userService.onDeleteUserData(details?.id);
       } else {
-        return of(null)
+        return of(null);
       }
     })).subscribe({
       next: (res: userDetails | null) => {
@@ -148,6 +155,8 @@ export class UserListComponent implements OnInit, AfterViewInit {
           this.userService.userDetailsData.splice(index, 1);
           this.userService.userListDetails.next(this.userService.userDetailsData);
         }
+        this.isLoader = false;
+        this.matSnackBar.open(this.userService?.currentlocalizationDetails?.deleteSuccess, this.userService?.currentlocalizationDetails?.okay);
       },
       error: (e) => this.matSnackBar.open(this.userService?.currentlocalizationDetails?.deleteDetails, this.userService?.currentlocalizationDetails?.okay)
     }));

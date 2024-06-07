@@ -1,3 +1,6 @@
+/**
+ * Shared module contains the related module and component need for the all application.
+ */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnimationLoaderComponent } from './components/animation-loader/animation-loader.component';

@@ -1,3 +1,6 @@
+/**
+ * Auth constant used to the login page message display
+ */
 export class AuthConstant {
     warningMessage = {
         validField: 'Please enter valid username or password',

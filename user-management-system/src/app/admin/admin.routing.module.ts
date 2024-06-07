@@ -1,3 +1,6 @@
+/**
+ * Admin Routing used to navigate the userlist component
+ */
 import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';

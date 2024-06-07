@@ -1,3 +1,6 @@
+/**
+ * Service used to the make the api and maintain the states
+ */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -12,7 +15,7 @@ export class UsersService {
    */
   staticEndPoint: string = 'https://jsonplaceholder.typicode.com/posts';
   /**
-   * Used to store the particular language heading details
+   * Variable Used to store the particular language heading details
    */
   currentlocalizationDetails!: translateDetails;
   /**
@@ -47,15 +50,28 @@ export class UsersService {
   onTranslateValue(): Observable<localization> {
     return this.http.get<localization>('/assets/localization.json');
   }
-
+  /**
+   * Method used to save the user details with fake api of static response
+   * @param userData has the user details
+   * @returns static response details
+   */
   onSaveUserData(userData: userDetails): Observable<userDetails> {
     return this.http.post<userDetails>(this.staticEndPoint, userData);
   }
-
+  /**
+   * Method used to delete the user details with fake api.
+   * @param id has the user details id.
+   * @returns response of user details
+   */
   onDeleteUserData(id: number | null): Observable<userDetails> {
     return this.http.delete<userDetails>(this.staticEndPoint + '/' + id);
   }
-
+  /**
+   * Method used to update the user details with fake api
+   * @param id has the user details id we send 1 for static to avoid the unhandle error from fake api response
+   * @param userDetails has the user details response
+   * @returns response of userdetails
+   */
   onUpdateUserData(id: number | null, userDetails: userDetails): Observable<userDetails> {
     return this.http.put<userDetails>(this.staticEndPoint + '/' + 1, userDetails);
   }

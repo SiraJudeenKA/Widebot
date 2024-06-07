@@ -12,11 +12,11 @@
         "action": "Action",
         "search": "Search",
         "userList": "User List",
-        "listDescription": "Here the list of users....!",
+        "listDescription": "Here's the list of users for your review",
         "addUser": "Add User",
         "noUserFound": "No User Found",
         "noImageFound": "No Image Found",
-        "addImageText": "Update your profile photo by entering valid image url and click link icon to verify",
+        "addImageText": "Update your profile photo by entering a valid image URL and clicking the link icon to verify; only then will your changes be reflected.",
         "firstNamePlaceHolder": "Enter your first name",
         "lastNamePlaceHolder": "Enter your last name",
         "addressPlaceHolder": "Enter your address",
@@ -34,8 +34,8 @@
             "Actions"
         ],
         "dialogHeading": "Are you sure you want to proceed?",
-        "dialogHeadingDescription": "You have unsaved changes,if you will click yes you will lose the changes",
-        "deleteDialogDescription": "if you will click yes you will lose the data",
+        "dialogHeadingDescription": "You have unsaved changes. If you click 'Yes,' you will lose these changes.",
+        "deleteDialogDescription": "If you click 'Yes,' you will lose the user data.",
         "yes": "Yes",
         "no": "No",
         "edit": "Edit",
@@ -46,7 +46,10 @@
         "okay": "Okay",
         "someThingWrong": "Something went wrong please try again",
         "addressValidField": "Please enter valid address and it should less than 150 character",
-        "deleteDetails": "Failed to delete the detail."
+        "deleteDetails": "Failed to delete the detail.",
+        "localizationButton": "Localization",
+        "logout": "Logout",
+        "deleteSuccess": "User deleted successfully!"
     },
     "arab": {
         "firstName": "الاسم الأول",
@@ -61,11 +64,11 @@
         "action": "أجراءات",
         "search": "يبحث",
         "userList": "قائمة المستخدم",
-        "listDescription": "هنا قائمة المستخدمين....!",
+        "listDescription": "إليك قائمة المستخدمين لمراجعتك",
         "addUser": "إضافة مستخدم",
         "noUserFound": "لم يتم العثور على المستخدم",
         "noImageFound": "لم يتم العثور على صورة",
-        "addImageText": "قم بتحديث صورة ملفك الشخصي عن طريق إدخال عنوان URL صالح للصورة وانقر فوق رمز الرابط للتحقق",
+        "addImageText": "قم بتحديث صورة ملفك الشخصي عن طريق إدخال عنوان URL صالح للصورة والنقر فوق رمز الرابط للتحقق؛ وعندها فقط سوف تنعكس التغييرات الخاصة بك.",
         "firstNamePlaceHolder": "أدخل اسمك الأول",
         "lastNamePlaceHolder": "أدخل اسمك الأخير",
         "addressPlaceHolder": "أدخل عنوانك",
@@ -83,8 +86,8 @@
             "أجراءات"
         ],
         "dialogHeading": "هل انت متأكد انك تريد المتابعة؟",
-        "dialogHeadingDescription": "لديك تغييرات غير محفوظة، إذا قمت بالنقر فوق نعم، فسوف تفقد التغييرات",
-        "deleteDialogDescription": "إذا قمت بالنقر فوق نعم فسوف تفقد البيانات",
+        "dialogHeadingDescription": "لم تحفظ التغييرات. إذا قمت بالنقر فوق نعم، فسوف تفقد هذه التغييرات.",
+        "deleteDialogDescription": "إذا قمت بالنقر فوق نعم، فسوف تفقد بيانات المستخدم.",
         "yes": "نعم",
         "no": "لا",
         "edit": "يحرر",
@@ -95,6 +98,9 @@
         "okay": "تمام",
         "someThingWrong": "حدث خطأ ما. أعد المحاولة من فضلك",
         "addressValidField": "الرجاء إدخال عنوان صالح ويجب أن يكون أقل من 150 حرفًا",
-        "deleteDetails": "فشل في حذف التفاصيل."
+        "deleteDetails": "فشل في حذف التفاصيل.",
+        "localizationButton": "الموقع",
+        "logout": "تسجيل خروج",
+        "deleteSuccess": "تم حذف المستخدم بنجاح!"
     }
 }

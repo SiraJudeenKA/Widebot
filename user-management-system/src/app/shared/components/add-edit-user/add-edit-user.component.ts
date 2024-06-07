@@ -1,3 +1,6 @@
+/**
+ * Component used to add and edit the user details.
+ */
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -16,13 +19,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AddEditUserComponent implements OnInit, OnDestroy {
 
   /**
-   * Used for the user form group variable.
+   * Variable used for the user form group variable.
    */
   userFormGroup!: UntypedFormGroup;
   /**
-   * used to store the default avatar.
+   * Variable used to store the default avatar.
    */
-  emptyUrl: string = './assets/avatar.png';
+  emptyUrl!: string | null;
   /**
    * Variable used to subscription object.
    */
@@ -56,8 +59,10 @@ export class AddEditUserComponent implements OnInit, OnDestroy {
       if (resp && resp.hasOwnProperty('fromuser')) {
         this.toNavigeBackForAdmin = false;
       }
+      this.emptyUrl = this.userService?.editUserDetails?.profileUrl ?
+        this.userService?.editUserDetails?.profileUrl === './assets/avatar.png' ? './assets/avatar.png' : this.userService?.editUserDetails?.profileUrl : './assets/avatar.png';
       this.userFormGroup = new UntypedFormGroup({
-        id: new UntypedFormControl(this.userService?.editUserDetails?.id ?
+        id: new UntypedFormControl(this.userService?.editUserDetails?.id || this.userService?.editUserDetails?.id === 0 ?
           this.userService?.editUserDetails?.id : null),
         firstName: new UntypedFormControl(this.userService?.editUserDetails?.firstName ?
           this.userService?.editUserDetails?.firstName : null, [Validators.required, Validators.maxLength(25)]),
@@ -88,7 +93,7 @@ export class AddEditUserComponent implements OnInit, OnDestroy {
   onNavigateBack(): void {
     if (this.userFormGroup?.dirty) {
       const dialog = this.matDialog.open(CommonDialogComponent, {
-        width: '250px',
+        width: '350px',
         disableClose: true,
         data: {
           heading: this.userService.currentlocalizationDetails.dialogHeading,
@@ -106,8 +111,10 @@ export class AddEditUserComponent implements OnInit, OnDestroy {
       this.toRouteNavigation();
     }
   }
-
-  toRouteNavigation() {
+  /**
+   * Method used to navigation back to admin and user.
+   */
+  toRouteNavigation(): void {
     if (this.toNavigeBackForAdmin) {
       this.router.navigate(['/app/admin/']);
     } else {
@@ -118,21 +125,17 @@ export class AddEditUserComponent implements OnInit, OnDestroy {
   /**
    * Method used to save the user details.
    */
-  onSave() {
+  onSave(): void {
     if (this.userFormGroup.valid && this.userFormGroup.dirty) {
       this.isLoader = true;
-      if (!this.userFormGroup.get('profileUrl')?.value && this.toNavigeBackForAdmin) {
-        this.userFormGroup.get('profileUrl')?.setValue('./assets/avatar1.png');
-      } else if (!this.userFormGroup.get('profileUrl')?.value && !this.toNavigeBackForAdmin) {
-        this.userFormGroup.get('profileUrl')?.setValue('./assets/avatar.png');
-      }
+      this.userFormGroup.get('profileUrl')?.setValue(this.emptyUrl);
       let methodName: Observable<userDetails>;
       if (this.userFormGroup.get('id')?.value) {
         methodName = this.userService.onUpdateUserData(this.userFormGroup.get('id')?.value, this.userFormGroup.value)
       } else {
         methodName = this.userService.onSaveUserData(this.userFormGroup.value);
       }
-      this.toSaveUserDetails(methodName);
+      this.toSaveUserDetails(methodName, this.userFormGroup.get('id')?.value);
     } else {
       this.matSnackBar.open(this.userService?.currentlocalizationDetails?.invalidDetails
         , this.userService?.currentlocalizationDetails?.okay);
@@ -141,12 +144,16 @@ export class AddEditUserComponent implements OnInit, OnDestroy {
   /**
    * Method used to save the user details by fake api call
    * @param methodName has the methodname of update or post.
+   * @param index has the index of user details
    */
-  toSaveUserDetails(methodName: Observable<userDetails>) {
+  toSaveUserDetails(methodName: Observable<userDetails>, index: number): void {
     this.subscriptionObject.add(methodName.subscribe({
       next: ((res: userDetails) => {
         if (res) {
           if (this.toNavigeBackForAdmin) {
+            if (index !== null) {
+              this.userService.userDetailsData.splice(index, 1);
+            }
             this.userService.userDetailsData.push(res);
             this.userService.userListDetails.next(this.userService.userDetailsData);
             this.router.navigate(['/app/admin']);
@@ -171,6 +178,8 @@ export class AddEditUserComponent implements OnInit, OnDestroy {
    * OnDestroy life cycle hook
    */
   ngOnDestroy(): void {
+    if (this.toNavigeBackForAdmin)
+      this.userService.editUserDetails = null;
     this.subscriptionObject.unsubscribe();
   }
 

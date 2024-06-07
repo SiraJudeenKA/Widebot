@@ -1,3 +1,6 @@
+/**
+ * component used for the user profile.
+ */
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { userDetails } from 'src/app/shared/model';
 import { UsersService } from '../../services/users.service';
@@ -45,7 +48,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   /**
    * OnInit life cycle hooks
    */
-  ngOnInit() {
+  ngOnInit(): void {
     this.isLoader = true;
     this.subscriptionObject.add(this.route.queryParams.subscribe((resp: Params) => {
       if (resp && resp.hasOwnProperty('fromAdmin')) {
@@ -60,14 +63,20 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     }));
   }
 
-  toNavigateToedit() {
-    this.userService.editUserDetails = this.userDetails;
-    this.router.navigate(['/app/add'], { queryParams: { fromuser: true } });
+  toNavigateToedit(): void {
+    if (this.toHideEdit) {
+      this.router.navigate(['/app/admin/'])
+    } else {
+      this.userService.editUserDetails = this.userDetails;
+      this.router.navigate(['/app/add'], { queryParams: { fromuser: true } });
+    }
   }
   /**
    * OnDestroy life cycle hook
    */
   ngOnDestroy(): void {
+    if (this.toHideEdit)
+      this.userService.editUserDetails = null;
     this.subscriptionObject.unsubscribe();
   }
 }

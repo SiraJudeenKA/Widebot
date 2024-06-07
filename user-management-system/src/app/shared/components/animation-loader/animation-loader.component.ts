@@ -1,3 +1,6 @@
+/**
+ * component used to load the animation while loading
+ */
 import { Component } from '@angular/core';
 
 @Component({

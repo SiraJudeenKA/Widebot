@@ -1,3 +1,7 @@
+/**
+ * Module used for the import related module, components for admin.
+ */
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';

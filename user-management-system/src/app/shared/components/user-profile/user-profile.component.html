@@ -11,9 +11,11 @@
         <h3>{{userDetails.email}}</h3>
         <h3>{{userDetails.address}}</h3>
     </div>
-    <div class="button-align" *ngIf="!toHideEdit">
-        <button mat-raised-button class="button-info"
+    <div class="button-align">
+        <button mat-raised-button class="button-info" *ngIf="!toHideEdit"
             (click)="toNavigateToedit()">{{userService.currentlocalizationDetails.edit}}</button>
+        <button mat-raised-button class="button-info" *ngIf="toHideEdit"
+            (click)="toNavigateToedit()">{{userService.currentlocalizationDetails.back}}</button>
     </div>
 </div>
 

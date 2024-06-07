@@ -12,7 +12,7 @@
     <app-animation-loader></app-animation-loader>
 </ng-container>
 <ng-template #noLoader>
-    <mat-form-field>
+    <mat-form-field class="search-box">
         <mat-label>{{userService.currentlocalizationDetails.search}}</mat-label>
         <input matInput (keyup)="searchText($event)"
             placeholder="{{userService.currentlocalizationDetails.firstName}},{{userService.currentlocalizationDetails.lastName}}"
@@ -21,7 +21,7 @@
 
     <ng-container *ngIf="userService.userDetailsData.length > 0 ; else tableData">
 
-        <div class="mat-elevation-z8">
+        <div class="mat-elevation-z8" style="padding: 10px;">
 
             <table mat-table [dataSource]="tableDataSource" class="example-table" matSort>
 
@@ -62,7 +62,7 @@
                         <button mat-icon-button class="visibility" (click)="toNavigateProfile(row)">
                             <mat-icon>visibility</mat-icon>
                         </button>
-                        <button mat-icon-button class="edit" (click)="toNavigateAddEditPage(row)">
+                        <button mat-icon-button class="edit" (click)="toNavigateAddEditPage(row ,index)">
                             <mat-icon>edit</mat-icon>
                         </button>
                         <button mat-icon-button class="delete" (click)="toDeleteUser(index, row)">

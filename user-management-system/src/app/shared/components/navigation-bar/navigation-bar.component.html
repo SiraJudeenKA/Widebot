@@ -1,7 +1,9 @@
-<ul class="navbar">
+<ul class="navbar" *ngIf="isNavLoader">
     <div class="nav-align">
-        <li class="nav-list" (click)="onTranslate(initialLanguageCode)">Localization</li>
-        <li class="nav-list" (click)="onLogout()">Logout</li>
+        <li class="nav-list" (click)="onTranslate(initialLanguageCode)">
+            {{userService.currentlocalizationDetails.localizationButton}}
+        </li>
+        <li class="nav-list" (click)="onLogout()">{{userService.currentlocalizationDetails.logout}}</li>
     </div>
 </ul><br>
 <ng-container *ngIf="!isLoader; else loaderBlock">
