@@ -151,7 +151,7 @@ export class AddEditUserComponent implements OnInit, OnDestroy {
       next: ((res: userDetails) => {
         if (res) {
           if (this.toNavigeBackForAdmin) {
-            if (index !== null) {
+            if (index !== null && this.userService?.userDetailsData?.length > 0) {
               this.userService.userDetailsData.splice(index, 1);
             }
             this.userService.userDetailsData.push(res);

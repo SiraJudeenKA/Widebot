@@ -8,9 +8,9 @@ describe('AnimationLoaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AnimationLoaderComponent ]
+      declarations: [AnimationLoaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AnimationLoaderComponent);
     component = fixture.componentInstance;
