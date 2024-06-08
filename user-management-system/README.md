@@ -39,6 +39,10 @@ Run `ng test --code-coverage` to execute the unit test code coverage for project
 
 `Authentication`: Simple login page with predefined roles (admin and user).
 
+`Admin Login Credential`: username: `admin`, password: `Admin@1234`
+
+`User Login Credential`: username: `user`, password: `User@1234`
+
 `User Management`: Admin can add, edit, view, and delete users.
 
 `Shared Components`: Common components like loader, navigation, and user profile are shared across the application. 
