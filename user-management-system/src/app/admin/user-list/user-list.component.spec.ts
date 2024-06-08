@@ -99,11 +99,7 @@ describe('UserListComponent', () => {
   });
 
   it('Should call on userlist details error', () => {
-    component.userService.userListDetails.subscribe({
-      error: (err) => {
-        throw new err;
-      },
-    });
+    component.userService.userListDetails.error('error');
     component.ngOnInit()
   });
 
@@ -179,5 +175,4 @@ describe('UserListComponent', () => {
     };
     component.toDeleteUser(1, details);
   });
-
 });

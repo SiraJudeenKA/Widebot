@@ -11,7 +11,7 @@ describe('NavigationBarComponent', () => {
   let component: NavigationBarComponent;
   let fixture: ComponentFixture<NavigationBarComponent>;
 
-  let errorTranslate = false;
+  let errorTranslate: boolean = false;
   class MockUserService {
     userListDetails = new BehaviorSubject<userDetails[]>([]);
     onTranslateValue() {
