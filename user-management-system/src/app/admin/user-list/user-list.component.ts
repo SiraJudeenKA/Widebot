@@ -94,7 +94,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
     if (this.userService?.userDetailsData?.length > 0) {
       this.tableDataSource.filter = filterValue.trim().toLowerCase();
 
-      if (this.tableDataSource.paginator) {
+      if (this.tableDataSource?.paginator) {
         this.tableDataSource.paginator.firstPage();
       }
     }
@@ -134,10 +134,10 @@ export class UserListComponent implements OnInit, AfterViewInit {
       width: '250px',
       disableClose: true,
       data: {
-        heading: this.userService.currentlocalizationDetails.dialogHeading,
-        description: this.userService.currentlocalizationDetails.deleteDialogDescription,
-        no: this.userService.currentlocalizationDetails.no,
-        yes: this.userService.currentlocalizationDetails.yes
+        heading: this.userService?.currentlocalizationDetails?.dialogHeading,
+        description: this.userService?.currentlocalizationDetails?.deleteDialogDescription,
+        no: this.userService?.currentlocalizationDetails?.no,
+        yes: this.userService?.currentlocalizationDetails?.yes
       }
     });
     this.subscriptionObject.add(dialog.afterClosed().pipe(filter((res: boolean) => {
@@ -153,7 +153,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
       next: (res: userDetails | null) => {
         if (res && this.userService?.userDetailsData?.length > 0) {
           this.userService.userDetailsData.splice(index, 1);
-          this.userService.userListDetails.next(this.userService.userDetailsData);
+          this.userService.userListDetails.next(this.userService?.userDetailsData);
         }
         this.isLoader = false;
         this.matSnackBar.open(this.userService?.currentlocalizationDetails?.deleteSuccess, this.userService?.currentlocalizationDetails?.okay);

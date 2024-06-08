@@ -50,8 +50,8 @@ export class LoginComponent extends AuthConstant implements OnInit {
   onNavigate(): void {
     if (this.loginFormGroup?.valid && this.loginFormGroup?.value) {
       const correctCredentials: credentialValue = this.authService.loginCredentialsCheck(this.loginFormGroup.value);
-      if (correctCredentials.credentials) {
-        if (correctCredentials.role === 'USER') {
+      if (correctCredentials?.credentials) {
+        if (correctCredentials?.role === 'USER') {
           this.router.navigate(['/app/user']);
         } else {
           this.router.navigate(['/app/admin']);

@@ -96,10 +96,10 @@ export class AddEditUserComponent implements OnInit, OnDestroy {
         width: '350px',
         disableClose: true,
         data: {
-          heading: this.userService.currentlocalizationDetails.dialogHeading,
-          description: this.userService.currentlocalizationDetails.dialogHeadingDescription,
-          no: this.userService.currentlocalizationDetails.no,
-          yes: this.userService.currentlocalizationDetails.yes
+          heading: this.userService?.currentlocalizationDetails?.dialogHeading,
+          description: this.userService?.currentlocalizationDetails?.dialogHeadingDescription,
+          no: this.userService?.currentlocalizationDetails?.no,
+          yes: this.userService?.currentlocalizationDetails?.yes
         }
       });
       this.subscriptionObject.add(dialog.afterClosed().subscribe((res: boolean) => {
@@ -116,6 +116,7 @@ export class AddEditUserComponent implements OnInit, OnDestroy {
    */
   toRouteNavigation(): void {
     if (this.toNavigeBackForAdmin) {
+      this.userService.editUserDetails = null;
       this.router.navigate(['/app/admin/']);
     } else {
       this.router.navigate(['/app/user/']);
@@ -178,8 +179,6 @@ export class AddEditUserComponent implements OnInit, OnDestroy {
    * OnDestroy life cycle hook
    */
   ngOnDestroy(): void {
-    if (this.toNavigeBackForAdmin)
-      this.userService.editUserDetails = null;
     this.subscriptionObject.unsubscribe();
   }
 

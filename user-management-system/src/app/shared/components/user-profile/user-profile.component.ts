@@ -65,7 +65,8 @@ export class UserProfileComponent implements OnInit, OnDestroy {
 
   toNavigateToedit(): void {
     if (this.toHideEdit) {
-      this.router.navigate(['/app/admin/'])
+      this.userService.editUserDetails = null;
+      this.router.navigate(['/app/admin/']);
     } else {
       this.userService.editUserDetails = this.userDetails;
       this.router.navigate(['/app/add'], { queryParams: { fromuser: true } });
@@ -75,8 +76,6 @@ export class UserProfileComponent implements OnInit, OnDestroy {
    * OnDestroy life cycle hook
    */
   ngOnDestroy(): void {
-    if (this.toHideEdit)
-      this.userService.editUserDetails = null;
     this.subscriptionObject.unsubscribe();
   }
 }

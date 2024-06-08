@@ -1,8 +1,8 @@
-<h2 mat-dialog-title class="dialog-heading">{{inputData.heading}}</h2>
+<h2 mat-dialog-title class="dialog-heading">{{inputData?.heading}}</h2>
 <mat-dialog-content class="mat-typography">
-    <h3>{{inputData.description}}</h3>
+    <h3>{{inputData?.description}}</h3>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-raised-button [mat-dialog-close]="false">{{inputData.no}}</button>
-    <button mat-raised-button class="button-design" (click)="onClickofOkay()">{{inputData.yes}}</button>
+    <button mat-raised-button [mat-dialog-close]="false">{{inputData?.no}}</button>
+    <button mat-raised-button class="button-design" (click)="onClickofOkay()">{{inputData?.yes}}</button>
 </mat-dialog-actions>
