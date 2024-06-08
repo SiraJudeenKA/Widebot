@@ -1,13 +1,13 @@
-.visibility {
-    color: green;
+.visibility .mat-icon {
+    color: green !important;
 }
 
-.edit {
-    color: blue;
+.edit .mat-icon {
+    color: blue !important;
 }
 
-.delete {
-    color: red;
+.delete .mat-icon {
+    color: red !important;
 }
 
 .no-record-img {
@@ -22,7 +22,8 @@
 }
 
 .profile-width {
-    width: 30px;
+    width: 60px;
+    border-radius: 50%;
 }
 
 .header-container {
@@ -40,4 +41,15 @@
 
 .search-box {
     padding: 10px;
+    min-width: 30%;
+}
+
+.mat-card-table {
+    margin: 1%;
+    padding: 10px;
+}
+
+.mdc-data-table__header-cell {
+    color: #004a9b !important;
+    font-size: 18px !important;
 }

@@ -8,7 +8,7 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Username</mat-label>
                     <input matInput placeholder="Enter your username" formControlName="username">
-                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-icon matSuffix matTooltip="Enter your username">person</mat-icon>
                     <mat-error
                         *ngIf="loginFormGroup?.get('username')?.errors">{{warningMessage.invalidUserName}}</mat-error>
                 </mat-form-field><br>
@@ -18,7 +18,8 @@
                         formControlName="password">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                         [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-icon matSuffix matTooltip="Enter your password">{{hide ? 'visibility_off' :
+                            'visibility'}}</mat-icon>
                     </button>
                     <mat-error
                         *ngIf="loginFormGroup?.get('password')?.errors">{{warningMessage.invalidPassword}}</mat-error>

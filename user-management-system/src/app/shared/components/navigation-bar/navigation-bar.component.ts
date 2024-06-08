@@ -79,6 +79,16 @@ export class NavigationBarComponent implements OnInit, OnDestroy {
     this.translateValue();
   }
   /**
+   * Method used to navigate to user or admin home page
+   */
+  onNavigateToHome(): void {
+    if (this.userService?.currentUserDetails?.role === 'USER') {
+      this.router.navigate(['/app/user']);
+    } else {
+      this.router.navigate(['/app/admin']);
+    }
+  }
+  /**
    * On destroy life cycle hook
    */
   ngOnDestroy(): void {
@@ -86,5 +96,6 @@ export class NavigationBarComponent implements OnInit, OnDestroy {
     this.userService.editUserDetails = null;
     this.userService.userListDetails.next([]);
     this.userService.userDetailsData = [];
+    this.userService.currentUserDetails = null;
   }
 }

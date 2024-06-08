@@ -15,7 +15,7 @@
                                     formControlName="profileUrl">
                                 <button type="button" mat-icon-button matSuffix (click)="checkProfileUrl()"
                                     matTooltip="{{userService.currentlocalizationDetails.matTooltip}}">
-                                    <mat-icon>link</mat-icon>
+                                    <mat-icon class="link-icon-color">link</mat-icon>
                                 </button>
                             </mat-form-field><br>
                         </div>
@@ -29,7 +29,8 @@
                         <mat-label>{{userService.currentlocalizationDetails.firstName}}</mat-label>
                         <input matInput placeholder="{{userService.currentlocalizationDetails.firstNamePlaceHolder}}"
                             formControlName="firstName">
-                        <mat-icon matSuffix>assignment_ind</mat-icon>
+                        <mat-icon matSuffix
+                            matTooltip="{{userService.currentlocalizationDetails.firstNamePlaceHolder}}">assignment_ind</mat-icon>
                         <mat-error
                             *ngIf="userFormGroup?.get('firstName')?.errors">{{userService.currentlocalizationDetails.firstNameValid}}</mat-error>
                     </mat-form-field><br>
@@ -37,7 +38,8 @@
                         <mat-label>{{userService.currentlocalizationDetails.lastName}}</mat-label>
                         <input matInput placeholder="{{userService.currentlocalizationDetails.lastNamePlaceHolder}}"
                             formControlName="lastName">
-                        <mat-icon matSuffix>person</mat-icon>
+                        <mat-icon matSuffix
+                            matTooltip="{{userService.currentlocalizationDetails.lastNamePlaceHolder}}">person</mat-icon>
                         <mat-error
                             *ngIf="userFormGroup?.get('lastName')?.errors">{{userService.currentlocalizationDetails.lastNameValid}}</mat-error>
                     </mat-form-field><br>
@@ -45,7 +47,8 @@
                         <mat-label>{{userService.currentlocalizationDetails.email}}</mat-label>
                         <input matInput placeholder="{{userService.currentlocalizationDetails.emailPlaceHolder}}"
                             formControlName="email">
-                        <mat-icon matSuffix>email</mat-icon>
+                        <mat-icon matSuffix
+                            matTooltip="{{userService.currentlocalizationDetails.emailPlaceHolder}}">email</mat-icon>
                         <mat-error
                             *ngIf="userFormGroup?.get('email')?.errors">{{userService.currentlocalizationDetails.emailValidField}}</mat-error>
                     </mat-form-field><br>
@@ -53,20 +56,23 @@
                         <mat-label>{{userService.currentlocalizationDetails.address}}</mat-label>
                         <input matInput placeholder="{{userService.currentlocalizationDetails.addressPlaceHolder}}"
                             formControlName="address">
-                        <mat-icon matSuffix>home</mat-icon>
+                        <mat-icon matSuffix
+                            matTooltip="{{userService.currentlocalizationDetails.addressPlaceHolder}}">home</mat-icon>
                         <mat-error
                             *ngIf="userFormGroup?.get('address')?.errors">{{userService.currentlocalizationDetails.addressValidField}}</mat-error>
                     </mat-form-field>
                 </div>
+                <div class="user-button-align">
+                    <button mat-raised-button class="button-info"
+                        (click)="onNavigateBack()">{{userService.currentlocalizationDetails.back}}</button>&nbsp;&nbsp;
+                    <button mat-raised-button class="button-info"
+                        (click)="onSave()">{{userService.currentlocalizationDetails.save}}</button>
+                </div>
             </mat-card>
+
         </div>
     </form><br>
-    <div class="user-button-align">
-        <button mat-raised-button class="button-info"
-            (click)="onNavigateBack()">{{userService.currentlocalizationDetails.back}}</button>
-        <button mat-raised-button class="button-info"
-            (click)="onSave()">{{userService.currentlocalizationDetails.save}}</button>
-    </div>
+
 </ng-container>
 
 

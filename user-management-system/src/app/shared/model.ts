@@ -53,7 +53,9 @@ export interface translateDetails {
     deleteDetails: string,
     localizationButton: string,
     logout: string,
-    deleteSuccess: string
+    deleteSuccess: string,
+    homePage: string,
+    searchText: string
 }
 /**
  * Interface used to the user details
@@ -65,4 +67,11 @@ export interface userDetails {
     profileUrl: string | null;
     email: string | null;
     address: string | null;
+}
+/**
+ * Interface used for current user details.
+ */
+export interface currentUserDetails {
+    role: string,
+    credentials: boolean
 }

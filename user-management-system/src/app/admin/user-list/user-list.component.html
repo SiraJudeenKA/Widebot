@@ -4,7 +4,7 @@
         <h4>{{userService.currentlocalizationDetails.listDescription}}</h4>
     </div>
     <button mat-raised-button class="header-button"
-        (click)="onCreateUser()"><mat-icon>add</mat-icon>{{userService.currentlocalizationDetails.addUser}}</button>
+        (click)="onCreateUser()">{{userService.currentlocalizationDetails.addUser}}</button>
 </div>
 
 
@@ -12,16 +12,17 @@
     <app-animation-loader></app-animation-loader>
 </ng-container>
 <ng-template #noLoader>
-    <mat-form-field class="search-box">
+    <mat-form-field class="search-box" appearance="outline">
         <mat-label>{{userService.currentlocalizationDetails.search}}</mat-label>
         <input matInput (keyup)="searchText($event)"
             placeholder="{{userService.currentlocalizationDetails.firstName}},{{userService.currentlocalizationDetails.lastName}}"
             #input>
+        <mat-icon matSuffix matTooltip="{{userService.currentlocalizationDetails.searchText}}">search</mat-icon>
     </mat-form-field>
 
     <ng-container *ngIf="userService.userDetailsData.length > 0 ; else tableData">
 
-        <div class="mat-elevation-z8" style="padding: 10px;">
+        <div class="mat-elevation-z8 mat-card-table">
 
             <table mat-table [dataSource]="tableDataSource" class="example-table" matSort>
 

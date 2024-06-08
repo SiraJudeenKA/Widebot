@@ -4,7 +4,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { localization, translateDetails, userDetails } from '../model';
+import { currentUserDetails, localization, translateDetails, userDetails } from '../model';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +37,8 @@ export class UsersService {
    * State management variable used to store the list of data.
    */
   userDetailsData: userDetails[] = []
+
+  currentUserDetails!: currentUserDetails | null;
   /**
    * Constructoe used to inject the dependency this component
    * @param http used to make the http call.

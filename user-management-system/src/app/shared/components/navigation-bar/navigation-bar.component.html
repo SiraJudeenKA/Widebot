@@ -1,4 +1,7 @@
 <ul class="navbar" *ngIf="isNavLoader">
+    <li class="nav-list" (click)="onNavigateToHome()">
+        {{userService.currentlocalizationDetails.homePage}}
+    </li>
     <div class="nav-align">
         <li class="nav-list" (click)="onTranslate(initialLanguageCode)">
             {{userService.currentlocalizationDetails.localizationButton}}

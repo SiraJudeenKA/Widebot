@@ -7,6 +7,7 @@ import { MaterialModule } from 'src/material.module';
 import { ReactiveFormsModule, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from '../service/auth.service';
+import { UsersService } from 'src/app/shared/services/users.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -46,6 +47,10 @@ describe('LoginComponent', () => {
     }
   }
 
+  class MockUserService {
+
+  }
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LoginComponent],
@@ -53,7 +58,8 @@ describe('LoginComponent', () => {
       providers: [
         { provide: MatSnackBar, useClass: MockMatSnackBar },
         { provide: Router, useClass: MockRouter },
-        { provide: AuthService, useClass: MockAuthService }
+        { provide: AuthService, useClass: MockAuthService },
+        { provide: UsersService, useClass: MockUserService }
       ]
     })
       .compileComponents();

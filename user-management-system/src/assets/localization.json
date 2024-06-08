@@ -49,7 +49,9 @@
         "deleteDetails": "Failed to delete the detail.",
         "localizationButton": "Localization",
         "logout": "Logout",
-        "deleteSuccess": "User deleted successfully!"
+        "deleteSuccess": "User deleted successfully!",
+        "homePage": "Home",
+        "searchText": "Enter your search text here!"
     },
     "arab": {
         "firstName": "الاسم الأول",
@@ -101,6 +103,8 @@
         "deleteDetails": "فشل في حذف التفاصيل.",
         "localizationButton": "الموقع",
         "logout": "تسجيل خروج",
-        "deleteSuccess": "تم حذف المستخدم بنجاح!"
+        "deleteSuccess": "تم حذف المستخدم بنجاح!",
+        "homePage": "بيت",
+        "searchText": "أدخل نص البحث الخاص بك هنا!"
     }
 }
