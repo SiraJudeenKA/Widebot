@@ -31,6 +31,8 @@ Run `ng test --code-coverage` to execute the unit test code coverage for project
 
 `Modular Structure`: Separates functionalities into different modules (auth, admin, and shared) for better maintainability and scalability. 
 
+`CanActivateChild`: Guard Service for navigating the authorized users only.
+
 `State Management`: Uses services to manage the state of the application. Components communicate via services to perform CRUD operations and other business logic.
 
 `Fake API(https://jsonplaceholder.typicode.com)`: used to make the fake api for POST, PUT and DELETE call. IN PUT we use fake id of 1 to avoid the error from jsonplaceholder. Didn't used GET to fetch the response from fake api. it returns only static data, so we used State Management here.
